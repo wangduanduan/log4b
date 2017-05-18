@@ -15,6 +15,7 @@ idea form: https://github.com/inorganik/debugout.js
 # feature
 - log can saved Asynchronous
 - log can download
+- download file support ie10 and later
 
 # methods
 - getLog: get log show on the console tab

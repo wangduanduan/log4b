@@ -18,17 +18,31 @@
 	};
 
 	this.downloadLog = function() {
-	    var file = "data:text/plain;charset=utf-8,";
-	    var logFile = self.getLog();
-	    var encoded = encodeURIComponent(logFile);
-	    file += encoded;
-	    var a = document.createElement('a');
-	    a.href = file;
-	    a.target   = '_blank';
-	    a.download = self.formatTimestamp()+ '-' + self.logFilename;
-	    document.body.appendChild(a);
-	    a.click();
-	    a.remove();
+		var downloadFileName = self.formatTimestamp()+ '-' + self.logFilename;
+
+		if(window.navigator.msSaveBlob){
+			// for ie 10 and later
+			try{
+				var blobObject = new Blob([self.output]); 
+				window.navigator.msSaveBlob(blobObject, downloadFileName); 
+			}
+			catch(e){
+				console.log(e);
+			}
+		}
+		else{
+		    var file = "data:text/plain;charset=utf-8,";
+		    var logFile = self.output;
+		    var encoded = encodeURIComponent(logFile);
+		    file += encoded;
+		    var a = document.createElement('a');
+		    a.href = file;
+		    a.target   = '_blank';
+		    a.download = downloadFileName;
+		    document.body.appendChild(a);
+		    a.click();
+		    a.remove();
+		}
 	};
 
 	this.search = function(string){

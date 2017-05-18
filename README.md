@@ -22,6 +22,7 @@ idea form: https://github.com/inorganik/debugout.js
 - clear: clear all saved log
 - log:	write log
 - lines: get how many lines of log
+- search: search a string
 
 # config
 - self.realTimeLoggingOn = true; // log in real time (forwards to console.log)

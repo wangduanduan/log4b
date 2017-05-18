@@ -31,6 +31,20 @@
 	    a.remove();
 	};
 
+	this.search = function(string){
+		var lines = self.output.split(self.lineBreak);
+		var rgx = new RegExp(string);
+		var matched = [];
+
+		for (var i = 0; i < lines.length; i++) {
+			if (rgx.test(lines[i])) {
+				matched.push('['+i+']: '+lines[i]);
+			}
+		}
+		var result = matched.join(self.lineBreak);
+		return result ? result : 'Nothing found for "'+string+'".';
+	};
+
 	this.clear = function() {
 		var clearTime = new Date();
 		self.output = '';

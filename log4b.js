@@ -28,7 +28,7 @@ function log4b() {
 	    a.click();
 	    a.remove();
 	};
-	
+
 	this.clear = function() {
 		var clearTime = new Date();
 		self.output = '';
@@ -60,7 +60,12 @@ function log4b() {
 	};
 
 	this.cutExceededChars = function(obj){
-		return obj.substr(0, self.lineMaxChars);
+		if(obj.length > self.lineMaxChars){
+			return obj.substr(0, self.lineMaxChars);
+		}
+		else{
+			return obj;
+		}
 	};
 
 	this.trimLog = function(log, maxLines) {

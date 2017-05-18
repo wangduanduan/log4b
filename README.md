@@ -1,6 +1,8 @@
 # log4b
 log for browser, can save and download console log
 
+idea form: https://github.com/inorganik/debugout.js
+
 # demo
 ```
 	var Log4b = new log4b();

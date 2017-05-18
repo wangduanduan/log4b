@@ -1,4 +1,6 @@
-function log4b() {
+(function(log4b){
+	window.log4b = window.log4b || log4b;
+})(function(){
 	var self = this;
 	// config
 	self.realTimeLoggingOn = true; // log in real time (forwards to console.log)
@@ -90,4 +92,4 @@ function log4b() {
 		var secs = ('0' + timestamp.getSeconds()).slice(-2);
 		return year + '-' + month + '-' + date + ' ' + hrs + ':' + mins + ':'+secs;
 	};
-}
+});

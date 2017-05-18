@@ -12,6 +12,9 @@ idea form: https://github.com/inorganik/debugout.js
 
 	Log4b.getLog();
 ```
+# feature
+- log can saved Asynchronous
+- log can download
 
 # methods
 - getLog: get log show on the console tab

@@ -63,6 +63,9 @@
 	};
 
 	this._log = function(obj) {
+		if(typeof obj === 'object'){
+			obj = JSON.stringify(obj);
+		}
 		if(typeof obj !== 'string'){
 			return;
 		}
@@ -104,6 +107,8 @@
 		var hrs = ('0' + timestamp.getHours()).slice(-2);
 		var mins = ('0' + timestamp.getMinutes()).slice(-2);
 		var secs = ('0' + timestamp.getSeconds()).slice(-2);
-		return year + '-' + month + '-' + date + ' ' + hrs + ':' + mins + ':'+secs;
+		var ms = timestamp.getMilliseconds();
+
+		return year + '-' + month + '-' + date + ' ' + hrs + ':' + mins + ':'+secs+'.'+ms;
 	};
 });
